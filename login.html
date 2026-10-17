@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /* Animated Background */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Form Container */
+        .form-container {
+            width: 330px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        /* Profile Header Layout */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: -50px;
+            margin-bottom: -30px;
+        }
+
+        /* Circular Profile Picture Frame */
+        .profile-circle {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            z-index: 10;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Profile Name Badge */
+        .profile-badge {
+            position: relative;
+            margin-left: -15px;
+            background: #23a6d5;
+            color: white;
+            padding: 6px 15px 6px 25px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid white;
+            z-index: 5;
+        }
+
+        h2 {
+            color: white;
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            background: #ffffff;
+            border-color: #23a6d5;
+        }
+
+        .show-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #555;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background-color: #23a6d5;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a8bc2;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            color: white;
+            font-size: 14px;
+        }
+
+        a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="">
+        <div class="form-container">
+            <!-- Profile Picture and Name Badge Section -->
+            <div class="profile-header">
+                <div class="profile-circle">
+                    <img src="faizan.jpg.jpeg" alt="">
+                </div>
+                <div class="profile-badge">Faizan Ahmad</div>
+            </div>
+
+            <h2>Login Here</h2>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Enter Your Email" name="Email" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="login-pass" placeholder="Enter Your Password" name="Password" required>
+                <button type="button" class="show-btn" onclick="togglePass('login-pass', this)">Show</button>
+            </div>
+            
+            <div class="input-group">
+                <input type="submit" value="Login">
+            </div>
+
+            <div class="footer-text">
+                Don't have an account? <a href="signup.html">Signup</a>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // Password Show/Hide Function
+        function togglePass(id, btn) {
+            var input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                btn.textContent = "Hide";
+            } else {
+                input.type = "password";
+                btn.textContent = "Show";
+            }
+        }
+    </script>
+
+</body>
+</html>
